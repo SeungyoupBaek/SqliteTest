@@ -21,6 +21,9 @@
 		00B125371883D5D300A11AA0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B125191883D5D300A11AA0 /* UIKit.framework */; };
 		00B1253F1883D5D300A11AA0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B1253D1883D5D300A11AA0 /* InfoPlist.strings */; };
 		00B125411883D5D300A11AA0 /* SqliteTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B125401883D5D300A11AA0 /* SqliteTestTests.m */; };
+		00B1254C1883D72500A11AA0 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1254B1883D72500A11AA0 /* Movie.m */; };
+		00B1254E1883D7AC00A11AA0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B1254D1883D7AC00A11AA0 /* libsqlite3.dylib */; };
+		00B125501883E39800A11AA0 /* db.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 00B1254F1883E39800A11AA0 /* db.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		00B1253C1883D5D300A11AA0 /* SqliteTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SqliteTestTests-Info.plist"; sourceTree = "<group>"; };
 		00B1253E1883D5D300A11AA0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00B125401883D5D300A11AA0 /* SqliteTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SqliteTestTests.m; sourceTree = "<group>"; };
+		00B1254A1883D72400A11AA0 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		00B1254B1883D72500A11AA0 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		00B1254D1883D7AC00A11AA0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		00B1254F1883E39800A11AA0 /* db.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = db.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00B1254E1883D7AC00A11AA0 /* libsqlite3.dylib in Frameworks */,
 				00B125181883D5D300A11AA0 /* CoreGraphics.framework in Frameworks */,
 				00B1251A1883D5D300A11AA0 /* UIKit.framework in Frameworks */,
 				00B125161883D5D300A11AA0 /* Foundation.framework in Frameworks */,
@@ -101,6 +109,7 @@
 		00B125141883D5D300A11AA0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00B1254D1883D7AC00A11AA0 /* libsqlite3.dylib */,
 				00B125151883D5D300A11AA0 /* Foundation.framework */,
 				00B125171883D5D300A11AA0 /* CoreGraphics.framework */,
 				00B125191883D5D300A11AA0 /* UIKit.framework */,
@@ -112,6 +121,7 @@
 		00B1251B1883D5D300A11AA0 /* SqliteTest */ = {
 			isa = PBXGroup;
 			children = (
+				00B1254F1883E39800A11AA0 /* db.sqlite */,
 				00B125241883D5D300A11AA0 /* AppDelegate.h */,
 				00B125251883D5D300A11AA0 /* AppDelegate.m */,
 				00B125271883D5D300A11AA0 /* Main.storyboard */,
@@ -119,6 +129,8 @@
 				00B1252B1883D5D300A11AA0 /* ViewController.m */,
 				00B1252D1883D5D300A11AA0 /* Images.xcassets */,
 				00B1251C1883D5D300A11AA0 /* Supporting Files */,
+				00B1254A1883D72400A11AA0 /* Movie.h */,
+				00B1254B1883D72500A11AA0 /* Movie.m */,
 			);
 			path = SqliteTest;
 			sourceTree = "<group>";
@@ -231,6 +243,7 @@
 				00B1252E1883D5D300A11AA0 /* Images.xcassets in Resources */,
 				00B125201883D5D300A11AA0 /* InfoPlist.strings in Resources */,
 				00B125291883D5D300A11AA0 /* Main.storyboard in Resources */,
+				00B125501883E39800A11AA0 /* db.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +264,7 @@
 			files = (
 				00B1252C1883D5D300A11AA0 /* ViewController.m in Sources */,
 				00B125261883D5D300A11AA0 /* AppDelegate.m in Sources */,
+				00B1254C1883D72500A11AA0 /* Movie.m in Sources */,
 				00B125221883D5D300A11AA0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
