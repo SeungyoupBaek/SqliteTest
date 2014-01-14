@@ -10,7 +10,7 @@
 #import "Movie.h"
 #import <sqlite3.h>
 
-@interface ViewController ()
+@interface ViewController ()<UIAlertViewDelegate, UITableViewDataSource, UITabBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end
@@ -18,6 +18,7 @@
 @implementation ViewController{
     NSMutableArray* data;
     sqlite3* db;
+    int rowId;
 }
 
 // 데이터베이스 오픈, 없으면 새로 만든다.
@@ -162,11 +163,49 @@
     [super viewWillAppear:animated];
     [self resolveData];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.table reloadData];
+    [self resolveData];
 
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)chageData:(NSString*)dataName{
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.cancelButtonIndex == buttonIndex) {
+        NSLog(@"취소 선택");
+    }else{
+    
+        UITextField* textField = [alertView textFieldAtIndex:0];
+        NSString* userInput = textField.text;
+//        Movie* one = [data objectAtIndex:rowId];
+        NSString* sql = [NSString stringWithFormat:@"UPDATE MOVIE SET TITLE='%@' WHERE rowid=%d",userInput, rowId];
+        char* errorMsg;
+        int ret = sqlite3_exec(db, [sql UTF8String], NULL, NULL, &errorMsg);
+        
+        if (SQLITE_OK != ret) {
+            NSLog(@"Error(%d) on deleting data : %s", ret, errorMsg);
+        }
+        [self resolveData];
+
+    }
+}
+//-(void)tabl
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"제목 변경" message:@"원하는 제목을 쓰시오" delegate:self cancelButtonTitle:@"취소" otherButtonTitles:@"확인", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField* textField = [alert textFieldAtIndex:0];
+    Movie* movie = data[indexPath.row];
+    textField.text = movie.title;
+    rowId = movie.rowID;
+    [alert show];
 }
 
 @end
