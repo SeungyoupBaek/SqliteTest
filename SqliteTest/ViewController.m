@@ -113,7 +113,9 @@
         [textField resignFirstResponder];
         textField.text = @"";
     }
+    [self resolveData];
     return YES;
+    
 }
 
 
